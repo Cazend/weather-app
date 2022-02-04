@@ -31,7 +31,6 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
     font-size: 1.1em;
     opacity: 1;
-    pointer-events: none;
     transform: translateY(-10px);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
@@ -46,8 +45,10 @@
     background: none;
     border: none;
     border-bottom: 1px #000 solid;
-    color: #fff;
+    color: #000;
     font-size: 1em;
+    position: relative;
+    z-index: 2;
 }
 
 .location-container {
