@@ -1,0 +1,143 @@
+.body {
+    margin: 0;
+    background: white;
+    background-image: url("backgrounds/clear.jpg");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*.dropdown button {
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    margin-left: 24em;
+    margin-top: 4em;
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    opacity: 1;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .dropdown-button + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+} */
+
+.search {
+    background: none;
+    border: none;
+    border-bottom: 1px #000 solid;
+    color: #fff;
+    font-size: 1em;
+}
+
+.location-container {
+    position: absolute;
+    top: 4em;
+    left: 0em;
+    display: flex;
+    flex-direction: row;
+}
+
+.location-icon, .dropdown-arrow {
+    display: flex;
+    height: auto;
+}
+  
+.location-icon > img { 
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    margin-left: 1em;
+}
+
+.dropdown-button > img {
+    margin-top: 1em;
+    margin-left: 1em;
+    width: 60px;
+    height: 60px;
+    align-self: center;
+}
+
+.location {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.weather-container {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.weather-container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temp-desc {
+    font-size: 5em;
+    margin-left: 4em;
+    margin-top: -3.5em;
+}
+
+.weather-icon img {
+    width: 20em;
+}
+
+.temp-value {
+    font-size: 5em;
+    font-weight: bolder;
+    margin-top: -0.5em;
+    margin-left: 4em;
+}
+
+.temp-details {
+    margin-top: -2.5em;
+}
+
+.temp-value img {
+    width: 1.5em;
+    margin-left: -0.5em;
+    margin-top: 0.28em;
+}
+
+.humidity {
+    margin-left: -0.8em;
+}
+
+.humidity-icon img {
+    width: 3.5em;
+    height: 3.5em;
+    margin-left: 19em;
+}
+
+.wind-icon img {
+    width: 3em;
+    margin-left: 1em;
+}

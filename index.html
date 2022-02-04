@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>PWS Weather App</title>
+</head>
+
+<body>
+   <div class="container">
+       <div class="location-container">
+           <div class="location-icon"><img src="icons/location.svg"></div>
+           <div class="location">The Hague</div>
+           <div class="dropdown">
+               <button onclick="myFunction()" class="dropdown-button"><img src="icons/expand.svg"></button></div>
+               <div class="dropdown-menu">
+                <input type="text" class="search" placeholder="Search Location...">
+                <a href="#current-loc">Current Location</a>
+               </div>
+           </div>
+        </div>
+        <div class="weather-container">
+            <div class="weather-icon"><img src="icons/clear-day.svg"></div>
+            <div class="temp-desc">Clear</div>
+            <div class="temp-value">23<span><img src="icons/thermometer-celsius.svg"></span></div>
+            <div class="temp-details">
+                <div class="humidity-icon"><img src="icons/humidity.svg"></div>
+                <div class="humidity">53%</div>
+                <div class="wind-icon"><img src="icons/wind.svg"></div>
+                <div class="wind">12 km/h</div>
+            </div>  
+        </div>
+   </div>
+    
+</body>
+</html>
