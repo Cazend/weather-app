@@ -9,7 +9,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-/*.dropdown button {
+.dropdown button {
     background: none;
     border: none;
     text-decoration: none;
@@ -36,11 +36,11 @@
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.dropdown.active > .dropdown-button + .dropdown-menu {
+.dropdown-menu a{
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-} */
+} 
 
 .search {
     background: none;
