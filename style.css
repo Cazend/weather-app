@@ -1,7 +1,6 @@
 .body {
     margin: 0;
     background: white;
-    background-image: url("backgrounds/clear.jpg");
 }
 
 * {
@@ -26,8 +25,8 @@
     margin-left: 24em;
     margin-top: 4em;
     background-color: white;
-    padding: .75rem;
-    border-radius: .25rem;
+    padding: .75em;
+    border-radius: .25em;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
     font-size: 1.1em;
     opacity: 1;
