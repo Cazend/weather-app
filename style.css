@@ -49,6 +49,11 @@
     font-size: 1em;
     position: relative;
     z-index: 2;
+    outline: 0;
+}
+
+.search:focus {
+    border: 1px solid #000000;
 }
 
 .location-container {
