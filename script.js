@@ -12,14 +12,21 @@ $(document).ready(function(){
       });
   });
 
-  var getData = function(){
+  /*var getData = function(area){
     $.getJSON("https://data.buienradar.nl/2.0/feed/json", function(json) {
-      $('.temp-value').html('<h2>HO</h2>')
+      //var tmpData = JSON.parse(json);
+      console.log("JSON Data: " + json[2].buienradar[0])
     });
     return false;
   }
-
+*/
   $("#den-haag").on("click", function(){
-    getData();
+   //getData("Den Haag");
+   $.get("https://data.buienradar.nl/2.0/feed/json", function(json) {
+     var tempData = (json);
+     alert("Data: " + tempData);
+   })
+    $('.dropdown-menu').hide();
   })
+
 });
