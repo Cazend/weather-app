@@ -20,7 +20,15 @@
            <div class="dropdown">
                <button class="dropdown-button"><img src="icons/expand.svg"></button></div>
                <div class="dropdown-menu">
-                <input type="text" class="search" placeholder="Search Location...">
+                <input type="text" class="search" placeholder="Search Location..." id="searchInput" onkeyup="searchInList()">
+                <ul id="locationList">
+                    <li>
+                        <p>Den Haag</p>
+                        <p>Rotterdam</p>
+                        <p>Den Helder</p>
+                        <p>Amsterdam</p>
+                    </li>
+                </ul>
                </div>
            </div>
         </div>
