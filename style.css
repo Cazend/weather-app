@@ -150,7 +150,6 @@
 }
 
 #locationList li a {
-    border: 2px solid #ddd; 
     margin-top: 5px;
     background-color: #f6f6f6; 
     padding: 12px; 
@@ -158,4 +157,8 @@
     font-size: 18px; 
     color: black;
     display: block;
+  }
+
+  #locationList li a:hover:not(.header) {
+    background-color: #eee; 
   }
