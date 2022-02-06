@@ -167,3 +167,7 @@
   #locationList li a:hover:not(.header) {
     background-color: #eee; 
   }
+
+  #den-haag {
+    cursor: pointer;
+  }

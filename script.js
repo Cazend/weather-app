@@ -11,4 +11,15 @@ $(document).ready(function(){
          return this.innerText.toLowerCase().indexOf(value) > -1 ? "":"none"
       });
   });
+
+  var getData = function(){
+    $.getJSON("https://data.buienradar.nl/2.0/feed/json", function(json) {
+      $('.temp-value').html('<h2>HO</h2>')
+    });
+    return false;
+  }
+
+  $("#den-haag").on("click", function(){
+    getData();
+  })
 });
