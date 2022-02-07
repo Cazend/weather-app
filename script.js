@@ -59,6 +59,7 @@ function formatSearchResults(jsonObject) {
   var temp_value = jsonObject.main.temp;
   var humidity = jsonObject.main.humidity;
   var wind = jsonObject.wind.speed;
+  
   $(".location").text(location);
   $(".temp-desc").text(temp_desc);
   $(".temp-value").text(Math.round(temp_value));  
