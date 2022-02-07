@@ -63,5 +63,5 @@ function formatSearchResults(jsonObject) {
   $(".temp-desc").text(temp_desc);
   $(".temp-value").text(Math.round(temp_value));  
   $(".humidity").text(humidity+"%");
-  $(".wind").text(wind+" km/h");
+  $(".wind").text(Math.round(wind * 10) / 10 + " km/h").toFixed(1);
 }
