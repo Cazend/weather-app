@@ -55,7 +55,6 @@ function performSearch(event) {
 function formatSearchResults(jsonObject) {
   
   var location = jsonObject.name;
-  location = location + ", " + jsonObject.sys.country;
   var temp_desc = jsonObject.weather[0].main;
   var temp_value = jsonObject.main.temp;
   var humidity = jsonObject.main.humidity;
