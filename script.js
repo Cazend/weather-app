@@ -13,15 +13,15 @@ $(document).ready(function() {
       });
   });
 
-  $("#search-query").submit(function() { 
-    performSearch(document.getElementById("searchInput").value); });
+  $("#search-query").submit(function(event) { 
+    performSearch(event, document.getElementById("searchInput").value); });
   
   let loc;
 
-  function performSearch(location) {
+  function performSearch(event, location) {
     let loc = location
     var request;
-    //event.preventDefault();
+    event.preventDefault();
     $(".location").text("Searching...");
     $(".temp-value").text();
     $(".temp-desc").text();
@@ -40,6 +40,7 @@ $(document).ready(function() {
     
     request.done(function (response){
       formatSearchResults(response);
+      console.log(request);
     });
     
     
@@ -112,7 +113,7 @@ $(document).ready(function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             var city = response.address.city;
-            performSearch(city);
+            performSearch(event, city);
             return;
         }
     }
