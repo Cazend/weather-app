@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  getLocation(); // direct locatie opvragen om te showen
+
   $('.dropdown-menu').hide();
 
   $(".dropdown-button").on("click", function(){
@@ -113,7 +115,7 @@ $(document).ready(function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             var city = response.address.city;
-            performSearch(event, city);
+            performSearch(event, city); // tijdelijk, moet nog verbeterd worden
             return;
         }
     }
