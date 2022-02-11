@@ -60,15 +60,25 @@ $(document).ready(function() {
   function formatSearchResults(jsonObject) {
     
     var location = jsonObject.name;
+    var temp_weather_id = jsonObject.weather[0].id;
     var temp_desc = jsonObject.weather[0].main;
-    var temp_check = jsonObject.weather[0].description;
     var temp_value = jsonObject.main.temp;
     var humidity = jsonObject.main.humidity;
     var wind = jsonObject.wind.speed;
 
-    $("#weather-icon-img").attr("src", "icons/" + temp_desc + ".svg");
+    if(temp_desc != "Atmosphere" && "Clear" && "Clouds") {
+      $("#weather-icon-img").attr("src", "icons/" + temp_desc + ".svg");
+    } else {
+      $("#weather-icon-img").attr("src", "icons/" + temp_desc + "-" + temp_weather_id + ".svg");
+    }
+
+/*    var weather_image = $("#weather-icon-img").attr("src"); // werkt niet, betere solution voor niet bestaande images nodig
+    if($('#weather-icon-img').width() == 0) {
+      $("#weather-icon-img").attr("src", "icons/not-available.svg");
+    }*/ 
+
     $(".location").text(location);
-    $(".temp-desc").text(temp_desc + ", " + temp_check);
+    $(".temp-desc").text(temp_desc);
     $(".temp-value").html(Math.round(temp_value) + "<img src='icons/thermometer-celsius.svg'></img>"); 
     $(".humidity").text(humidity+"%");
     $(".wind").text(Math.round(wind * 10) / 10 + " km/h")
