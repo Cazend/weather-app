@@ -18,6 +18,56 @@ $(document).ready(function() {
   $("#search-query").submit(function(event) { 
     performSearch(event, document.getElementById("searchInput").value); });
   
+    var autocomplete;
+
+    function initAutocomplete() {
+      // Create the autocomplete object, restricting the search to geographical
+      // location types.
+      autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchInput')),
+          {types: ['geocode']}
+
+      // When the user selects an address from the dropdown, populate the address
+      // fields in the form.
+      autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+      // Get the place details from the autocomplete object.
+      var place = autocomplete.getPlace();
+
+      for (var component in componentForm) {
+        document.getElementById(component).value = '';
+        document.getElementById(component).disabled = false;
+      }
+
+      // Get each component of the address from the place details
+      // and fill the corresponding field on the form.
+      for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if (componentForm[addressType]) {
+          var val = place.address_components[i][componentForm[addressType]];
+          document.getElementById(addressType).value = val;
+        }
+      }
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: position.coords.accuracy
+          });
+          autocomplete.setBounds(circle.getBounds());
+        });
+      }
+    }
   let loc;
 
   function performSearch(event, location) {
@@ -25,6 +75,7 @@ $(document).ready(function() {
     var request;
     event.preventDefault();
     $(".location").text("Searching...");
+    $("#weather-icon-img").attr("src", "icons/loading.svg");
     $(".temp-value").text();
     $(".temp-desc").text();
     $(".humidity").text();
@@ -47,16 +98,17 @@ $(document).ready(function() {
     
     
     request.fail(function (){
-      $(".location").text("N/A");
-      $(".temp-desc").text();
-      $(".temp-value").text();
-      $(".humidity").text();
-      $(".wind").text();
+      $(".location").text("Invalid location");
+      $("#weather-icon-img").attr("src", "icons/not-available.svg");
+      $(".temp-desc").text("N/A");
+      $(".temp-value").html("∞ <img src='icons/thermometer-celsius.svg'></img>"); 
+      $(".humidity").text("N/A");
+      $(".wind").text("N/A");
       
     });
     
   }
-  
+
   function formatSearchResults(jsonObject) {
     
     var location = jsonObject.name;
@@ -72,7 +124,8 @@ $(document).ready(function() {
       $("#weather-icon-img").attr("src", "icons/" + temp_desc + "-" + temp_weather_id + ".svg");
     }
 
-/*    var weather_image = $("#weather-icon-img").attr("src"); // werkt niet, betere solution voor niet bestaande images nodig
+    var weather_image = $("#weather-icon-img").attr("src");
+/*  var weather_image = $("#weather-icon-img").attr("src"); // werkt niet, betere solution voor niet bestaande images nodig
     if($('#weather-icon-img').width() == 0) {
       $("#weather-icon-img").attr("src", "icons/not-available.svg");
     }*/ 
@@ -127,7 +180,7 @@ $(document).ready(function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             var city = response.address.city;
-            performSearch(event, city); // tijdelijk, moet nog verbeterd worden
+            performSearch(e, city); // tijdelijk, moet nog verbeterd worden
             return;
         }
     }
