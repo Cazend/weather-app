@@ -59,13 +59,22 @@ $(document).ready(function() {
       humidity = jsonObject.main.humidity;
       wind = jsonObject.wind.speed;
     } else {
-      /*console.log(jsonObject);
-      location = jsonObject.city.name;
-      //temp_weather_id = jsonObject.weather[0].id;
-      //temp_desc = jsonObject.weather[0].main;
-      //temp_value = jsonObject.main.temp;
-      //humidity = jsonObject.main.humidity;
-      wind = jsonObject.list[0].wind.speed;*/
+      var fday = "";
+      jsonObject.daily.forEach((value, index) => {
+				if (index > 0) {
+					var dayname = new Date(value.dt * 1000).toLocaleDateString("en", {
+						weekday: "long",
+					});
+					var icon = value.weather[0].icon;
+					var temp = value.temp.day.toFixed(0);
+					fday = `<div class="forecast-day">
+						<p>${dayname}</p>
+						<p><span class="ico-${icon}" title="${icon}"></span></p>
+						<div class="forecast-day--temp">${temp}<sup>°C</sup></div>
+					</div>`;
+					$(".forecast").insertAdjacentHTML('beforeend', fday);
+        }
+      });
     }
 
     if(temp_desc != "Atmosphere" && "Clear" && "Clouds") {
@@ -104,8 +113,8 @@ $(document).ready(function() {
         var lat = crd.latitude.toString();
         var lng = crd.longitude.toString();
         var coordinates = [lat, lng];
-        getForecast(coordinates);
-        //getCity(coordinates);
+        //getForecast(coordinates);
+        getCity(coordinates);
         return;
     }
 
@@ -131,8 +140,8 @@ $(document).ready(function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             var city = response.address.city;
-            //performSearch(e, city);
-            getForecast(city);
+            performSearch(e, city);
+            //getForecast(city);
             return;
         }
     }
@@ -151,10 +160,11 @@ $(document).ready(function() {
     var lo = coordinates[1];
 
     request = $.ajax({
-      url: '//api.openweathermap.org/data/2.5/forecast',
+      url: '//api.openweathermap.org/data/2.5/onecall',
       dataType: 'json',
       type: "GET",
       data: { lat: la, lon: lo, 
+      exclude: 'current,hourly,minutely,alerts',
       appid: 'de2d41b23483456da8e390456f8b2f4b',
       units: 'metric'}
     });
