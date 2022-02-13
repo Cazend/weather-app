@@ -111,7 +111,7 @@
     margin-top: -3.5em;
 }
 
-.weather-icon img {
+.weather-icon {
     width: 20em;
 }
 
@@ -145,6 +145,41 @@
 .wind-icon img {
     width: 3em;
     margin-left: 1em;
+}
+
+.forecast-container {
+    position: absolute;
+    margin: 5em;
+    top: 50%;
+    left: 0;
+    bottom: 20%;
+}
+
+.forecast {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.fc-weather-icon img {
+    width: 4em;
+    margin: -4em;
+}
+
+.fc-temp-value img {
+    width: 1.5em;
+    margin-left: -0.5em;
+    margin-top: 3em;
+}
+
+.fc-temp-value {
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-top: -0.5em;
+    margin-left: -1.9em;
+}
+
+.fc-day {
+    text-align: center;
 }
 
 #locationList {

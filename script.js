@@ -44,12 +44,7 @@ $(document).ready(function() {
     
     
     request.fail(function (){
-      $(".location").text("Invalid location");
-      $("#weather-icon-img").attr("src", "icons/not-available.svg");
-      $(".temp-desc").text("N/A");
-      $(".temp-value").html("∞ <img src='icons/thermometer-celsius.svg'></img>"); 
-      $(".humidity").text("N/A");
-      $(".wind").text("N/A");
+      displayFailSearch();
     });
   }
 
@@ -64,13 +59,13 @@ $(document).ready(function() {
       humidity = jsonObject.main.humidity;
       wind = jsonObject.wind.speed;
     } else {
-      console.log(jsonObject);
+      /*console.log(jsonObject);
       location = jsonObject.city.name;
       //temp_weather_id = jsonObject.weather[0].id;
       //temp_desc = jsonObject.weather[0].main;
       //temp_value = jsonObject.main.temp;
       //humidity = jsonObject.main.humidity;
-      wind = jsonObject.list[0].wind.speed;
+      wind = jsonObject.list[0].wind.speed;*/
     }
 
     if(temp_desc != "Atmosphere" && "Clear" && "Clouds") {
@@ -170,12 +165,16 @@ $(document).ready(function() {
     });
   
     request.fail(function (){
-      $(".location").text("Invalid location");
-      $("#weather-icon-img").attr("src", "icons/not-available.svg");
-      $(".temp-desc").text("N/A");
-      $(".temp-value").html("∞ <img src='icons/thermometer-celsius.svg'></img>"); 
-      $(".humidity").text("N/A");
-      $(".wind").text("N/A");
+      displayFailSearch();
     });
+  }
+
+  function displayFailSearch() {
+    $(".location").text("Invalid location");
+    $("#weather-icon-img").attr("src", "icons/not-available.svg");
+    $(".temp-desc").text("N/A");
+    $(".temp-value").html("∞ <img src='icons/thermometer-celsius.svg'></img>"); 
+    $(".humidity").text("N/A");
+    $(".wind").text("N/A");
   }
 });
