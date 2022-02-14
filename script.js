@@ -81,7 +81,7 @@ $(document).ready(function() {
     }
 
     let weather_icon = getWeatherIcon(temp_weather_id, temp_desc);
-
+    console.log(weather_icon);
     $(".location").text(location);
     $("#weather-icon-img").attr("src", weather_icon);
     $(".temp-desc").text(temp_desc);
