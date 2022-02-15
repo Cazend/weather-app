@@ -149,7 +149,7 @@
 
 .forecast-container {
     position: absolute;
-    margin: 5em;
+    margin: 8em;
     top: 50%;
     left: 0;
     bottom: 20%;
@@ -157,6 +157,8 @@
 
 .forecast {
     display: flex;
+    column-gap: .6rem;
+    justify-content: space-between;
     flex-wrap: nowrap;
 }
 

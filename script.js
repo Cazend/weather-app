@@ -61,6 +61,7 @@ $(document).ready(function() {
       wind = jsonObject.wind.speed;
     } else {
       var fday = "";
+      let dayCount = 1;
       jsonObject.daily.forEach((value, index) => {
 				if (index > 0) {
 					var dayname = new Date(value.dt * 1000).toLocaleDateString("en", {
@@ -69,13 +70,15 @@ $(document).ready(function() {
           console.log(index);
 					var weather_id = value.weather[0].id;
           var weather_desc = value.weather[0].main;
+          console.log("WEATHER ID: " + weather_id);
+          console.log("WEATHER ID: " + weather_desc);
           let icon = getWeatherIcon(weather_id, weather_desc);
           console.log(icon);
 					var temp = value.temp.day.toFixed(0);
-					fday = `<div class="fc-day">${dayname}</div>
-          <div class="fc-weather-icon"><img src="${icon}"></div>
-          <div class="fc-temp-value"><a>${temp}</a><img src="icons/thermometer-celsius.svg"></div>`
-					$(".forecast").append(fday);
+          $("#fc-d" + dayCount).text(dayname);
+          $("#fc-i" + dayCount).attr("src", icon);
+          $("#fc-t" + dayCount).html(temp + "<img src='icons/thermometer-celsius.svg'></img>"); 
+          dayCount++;
         }
       });
     }
