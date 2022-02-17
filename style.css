@@ -5,7 +5,7 @@
 
 .body {
     margin: 0;
-    background: white;
+    background-image: url(../backgrounds/clear.jpg);
 }
 
 .dropdown button {
@@ -91,7 +91,7 @@
 .weather-container {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 35%;
     transform: translate(0, -50%);
     display: flex;
     justify-content: space-between;
@@ -150,8 +150,8 @@
 .forecast-container {
     position: absolute;
     margin: 8em;
-    top: 50%;
-    left: 0;
+    top: 40%;
+    right: 65%;
     bottom: 20%;
 }
 
@@ -182,6 +182,11 @@
 
 .fc-day {
     text-align: center;
+}
+
+.fc-text {
+    font-size: 1.75em;
+    font-weight: bold;
 }
 
 #locationList {
