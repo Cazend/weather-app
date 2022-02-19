@@ -22,13 +22,13 @@
 
 .dropdown-menu {
     position: absolute;
-    margin-left: 24em;
-    margin-top: 4em;
+    margin-left: 24rem;
+    margin-top: 4rem;
     background-color: white;
-    padding: .75em;
-    border-radius: .25em;
+    padding: .75rem;
+    border-radius: .25rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-    font-size: 1.1em;
+    font-size: 1.1rem;
     opacity: 1;
     transform: translateY(-10px);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
@@ -45,7 +45,7 @@
     border: none;
     border-bottom: 1px #000 solid;
     color: #000;
-    font-size: 1em;
+    font-size: 1rem;
     position: relative;
     z-index: 2;
     outline: 0;
@@ -57,8 +57,8 @@
 
 .location-container {
     position: absolute;
-    top: 4em;
-    left: 0em;
+    top: 4rem;
+    left: 0rem;
     display: flex;
     flex-direction: row;
 }
@@ -72,19 +72,19 @@
     width: 60px;
     height: 60px;
     align-self: center;
-    margin-left: 1em;
+    margin-left: 1rem;
 }
 
 .dropdown-button > img {
-    margin-top: 1em;
-    margin-left: 1em;
+    margin-top: 1rem;
+    margin-left: 1rem;
     width: 60px;
     height: 60px;
     align-self: center;
 }
 
 .location {
-    font-size: 4em;
+    font-size: 4rem;
     font-weight: bold;
 }
 
@@ -106,53 +106,54 @@
 }
 
 .temp-desc {
-    font-size: 5em;
-    margin-left: 4em;
-    margin-top: -3.5em;
+    font-size: 5rem;
+    margin-left: 4rem;
+    margin-top: -3.5rem;
 }
 
 .weather-icon {
-    width: 20em;
+    width: 20rem;
 }
 
 .temp-value {
-    font-size: 5em;
+    font-size: 5rem;
     font-weight: bolder;
-    margin-top: -0.5em;
-    margin-left: 4em;
+    margin-top: -0.5rem;
+    margin-left: 4rem;
 }
 
 .temp-details {
-    margin-top: -2.5em;
+    margin-top: -2.5rem;
 }
 
 .temp-value img {
-    width: 1.5em;
-    margin-left: -0.5em;
-    margin-top: 0.28em;
+    width: 1.5rem;
+    margin-left: -0.5rem;
+    margin-top: 0.28rem;
 }
 
 .humidity {
-    margin-left: -0.8em;
+    margin-left: -0.8rem;
 }
 
 .humidity-icon img {
-    width: 3.5em;
-    height: 3.5em;
-    margin-left: 19em;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-left: 19rem;
 }
 
 .wind-icon img {
-    width: 3em;
-    margin-left: 1em;
+    width: 3rem;
+    margin-left: 1rem;
 }
 
 .forecast-container {
     position: absolute;
-    margin: 8em;
+    margin: 8rem;
     top: 40%;
     right: 65%;
     bottom: 20%;
+    transform: translateY(-30px);
 }
 
 .forecast {
@@ -163,21 +164,21 @@
 }
 
 .fc-weather-icon img {
-    width: 4em;
-    margin: -4em;
+    width: 4rem;
+    margin: -4rem;
 }
 
 .fc-temp-value img {
-    width: 1.5em;
-    margin-left: -0.5em;
-    margin-top: 3em;
+    width: 1.5rem;
+    margin-left: -0.5rem;
+    margin-top: 3rem;
 }
 
 .fc-temp-value {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: bolder;
-    margin-top: -0.5em;
-    margin-left: -1.9em;
+    margin-top: -0.5rem;
+    margin-left: -1.9rem;
 }
 
 .fc-day {
@@ -185,7 +186,7 @@
 }
 
 .fc-text {
-    font-size: 1.75em;
+    font-size: 1.75vw;
     font-weight: bold;
 }
 
@@ -207,4 +208,46 @@
 
   #locationList li a:hover:not(.header) {
     background-color: #eee; 
-  }
+  } 
+
+/* Extra small devices (phones, 600px and down) 
+@media only screen and (max-width: 600px) {
+    .location { font-size: 2rem; margin-top: -1.25rem;}
+    .location-icon { margin-left: -1rem; margin-top: -7rem; }
+    .dropdown-button { margin-left: -3.5rem; margin-top: -4rem;}
+    .weather-icon {width: 500%;}
+    .weather-container { margin-left: -1rem;}
+}
+/* Small devices (portrait tablets and large phones, 600px and up) 
+@media only screen and (min-width: 600px) {
+
+}
+/* Medium devices (landscape tablets, 768px and up) 
+@media only screen and (min-width: 768px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) 
+@media only screen and (min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) 
+@media only screen and (min-width: 1200px) {
+
+}*/
+
+@media only screen and (max-width:700px) {
+    .location { font-size: 2rem; margin-top: -1.25rem;}
+    .location-icon { margin-left: -1rem; margin-top: -2rem; }
+    .dropdown-button { margin-left: 2.5rem; margin-top: -3rem;}
+    .weather-icon {width: 40%; padding: 0px;}
+    .weather-container {padding: 5px};
+    .temp-desc {font-size: 200%;}
+    /*.temp-details {margin-left: -10%; margin-top: -40%;}*/
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+html { font-size:100%; }
