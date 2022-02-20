@@ -17,7 +17,6 @@ $(document).ready(function() {
 
   $("#search-query").submit(function(event) { 
     performSearch(event, document.getElementById("searchInput").value);
-    getCoordinatesOfCity(document.getElementById("searchInput").value);
   });
 
   function performSearch(event, location) {
@@ -52,7 +51,7 @@ $(document).ready(function() {
 
   function formatSearchResults(jsonObject) {
     
-    var location, temp_weather_id, temp_desc, temp_value, humidity, wind;
+    var location, temp_weather_id, temp_desc, temp_value, humidity, wind, lat, lon;
 
     location = jsonObject.name;
     temp_weather_id = jsonObject.weather[0].id;
@@ -60,16 +59,19 @@ $(document).ready(function() {
     temp_value = jsonObject.main.temp;
     humidity = jsonObject.main.humidity;
     wind = jsonObject.wind.speed;
+    lat = jsonObject.coord.lat;
+    lon = jsonObject.coord.lon;
 
     let weather_icon = getWeatherIcon(temp_weather_id, temp_desc);
-    console.log("humidity: " + humidity);
-    console.log("wind: " + wind);
+
     $(".location").text(location);
     $("#weather-icon-img").attr("src", weather_icon);
     $(".temp-desc").text(temp_desc);
     $(".temp-value").html(Math.round(temp_value) + "<img src='icons/thermometer-celsius.svg'></img>"); 
     $(".humidity").text(humidity+"%");
     $(".wind").text(Math.round(wind * 10) / 10 + " km/h"); 
+
+    getForecast(lat, lon);
   };
 
   function formatForecastResults(jsonObject) {
@@ -151,13 +153,8 @@ $(document).ready(function() {
 
   function getForecast(latitude, longtitude) {
     var request;
-    /*$(".location").text("Searching...");
-    $("#weather-icon-img").attr("src", "icons/loading.svg");
-    $(".temp-value").text();
-    $(".temp-desc").text();
-    $(".humidity").text();
-    $(".wind").text();*/
-
+    
+    console.log("LATITUDE: " + latitude + " LONGTITUDE: " + longtitude);
     request = $.ajax({
       url: '//api.openweathermap.org/data/2.5/onecall',
       dataType: 'json',
@@ -175,31 +172,6 @@ $(document).ready(function() {
   
     request.fail(function (){
       displayFailSearch();
-    });
-  }
-
-  function getCoordinatesOfCity(city)
-  {
-    var request;
-
-    request = $.ajax({
-      url: 'https://corsanywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct',
-      dataType: 'json',
-      type: "GET",
-      data: { q: city, 
-      exclude: 'limit',
-      appid: 'de2d41b23483456da8e390456f8b2f4b'}
-    });
-    
-    request.done(function (response){
-      var lon, lat;
-      lat = response[0].lon;
-      lon = response[0].lat;
-      getForecast(lat, lon);
-    });
-  
-    request.fail(function (){
-      console.log("Failed to retrieve coordinates.");
     });
   }
 

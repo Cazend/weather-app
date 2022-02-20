@@ -22,13 +22,13 @@
 
 .dropdown-menu {
     position: absolute;
-    margin-left: 24rem;
-    margin-top: 4rem;
+    margin-left: 24em;
+    margin-top: 4em;
     background-color: white;
-    padding: .75rem;
-    border-radius: .25rem;
+    padding: .75em;
+    border-radius: .25em;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-    font-size: 1.1rem;
+    font-size: 1.1em;
     opacity: 1;
     transform: translateY(-10px);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
@@ -45,7 +45,7 @@
     border: none;
     border-bottom: 1px #000 solid;
     color: #000;
-    font-size: 1rem;
+    font-size: 1em;
     position: relative;
     z-index: 2;
     outline: 0;
@@ -57,8 +57,8 @@
 
 .location-container {
     position: absolute;
-    top: 4rem;
-    left: 0rem;
+    top: 4em;
+    left: 0em;
     display: flex;
     flex-direction: row;
 }
@@ -72,19 +72,19 @@
     width: 60px;
     height: 60px;
     align-self: center;
-    margin-left: 1rem;
+    margin-left: rem;
 }
 
 .dropdown-button > img {
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin-top: 1em;
+    margin-left: 1em;
     width: 60px;
     height: 60px;
     align-self: center;
 }
 
 .location {
-    font-size: 4rem;
+    font-size: 4em;
     font-weight: bold;
 }
 
@@ -106,50 +106,50 @@
 }
 
 .temp-desc {
-    font-size: 5rem;
-    margin-left: 4rem;
-    margin-top: -3.5rem;
+    font-size: 5em;
+    margin-left: 4em;
+    margin-top: -3.5em;
 }
 
 .weather-icon {
-    width: 20rem;
+    width: 20em;
 }
 
 .temp-value {
-    font-size: 5rem;
+    font-size: 5em;
     font-weight: bolder;
-    margin-top: -0.5rem;
-    margin-left: 4rem;
+    margin-top: -0.5em;
+    margin-left: 4em;
 }
 
 .temp-details {
-    margin-top: -2.5rem;
+    margin-top: -2.5em;
 }
 
 .temp-value img {
-    width: 1.5rem;
-    margin-left: -0.5rem;
-    margin-top: 0.28rem;
+    width: 1.5em;
+    margin-left: -0.5em;
+    margin-top: 0.28em;
 }
 
 .humidity {
-    margin-left: -0.8rem;
+    margin-left: -0.8em;
 }
 
 .humidity-icon img {
-    width: 3.5rem;
-    height: 3.5rem;
-    margin-left: 19rem;
+    width: 3.5em;
+    height: 3.5em;
+    margin-left: 19em;
 }
 
 .wind-icon img {
-    width: 3rem;
-    margin-left: 1rem;
+    width: 3em;
+    margin-left: 1em;
 }
 
 .forecast-container {
     position: absolute;
-    margin: 8rem;
+    margin: 8em;
     top: 40%;
     right: 65%;
     bottom: 20%;
@@ -175,10 +175,10 @@
 }
 
 .fc-temp-value {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: bolder;
-    margin-top: -0.5rem;
-    margin-left: -1.9rem;
+    margin-top: -0.5em;
+    margin-left: -1.9em;
 }
 
 .fc-day {
@@ -214,6 +214,7 @@
     .location { font-size: 2rem; margin-top: -1.25rem;}
     .location-icon { margin-left: -1rem; margin-top: -2rem; }
     .dropdown-button { margin-left: 2.5rem; margin-top: -3rem;}
+    .dropdown-menu {margin-left: 15rem; margin-top: 1rem;}
     .weather-icon {width: 40%; margin-top: -25%; position: absolute;}
     .temp-desc {font-size: 300%; margin-left: 45%;}
     .temp-value {margin-left: 45%; font-size: 3rem;}
