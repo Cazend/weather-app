@@ -212,18 +212,18 @@
 
 @media only screen and (max-width:700px) {
     .location { font-size: 2rem; margin-top: -1.25rem;}
-    .location-icon { margin-left: -1rem; margin-top: -2rem; }
-    .dropdown-button { margin-left: 2.5rem; margin-top: -3rem;}
-    .dropdown-menu {margin-left: 15rem; margin-top: 1rem;}
-    .weather-icon {width: 40%; margin-top: -25%; position: absolute;}
-    .temp-desc {font-size: 300%; margin-left: 45%;}
-    .temp-value {margin-left: 45%; font-size: 3rem;}
+    .location-icon {margin-top: -2rem; }
+    .dropdown-button { margin-left: -.5rem; margin-top: -3rem;}
+    .dropdown-menu {margin-left: 5rem; margin-top: 1rem; z-index: 9;}
+    .weather-icon {width: 40%; margin-top: 10%; position: absolute;}
+    .temp-desc {font-size: 200%; margin-left: 45%; margin-top: 20%; position: relative;}
+    .temp-value {margin-left: 45%; font-size: 2rem;}
     .temp-value img {width: 4.5rem; margin-left: -1rem;}
-    .temp-details {margin-left: -25%; padding-top: 1.5rem;}
+    .temp-details {margin-left: -60%; padding-top: 1.5rem;}
     .forecast {display: inline-block; margin-left: 150%;}
-    .fc-text{margin-left:100%; font-size: 2rem;}
+    .fc-text{margin-left:125%; font-size: 2rem;}
     .fc-weather-icon {margin-left: 80%; width: 4.5rem; margin-top: -10%;}
-    .fc-temp-value {margin-left: 35%; margin-top: 5%; padding-bottom: 30px;}
+    .fc-temp-value {margin-left: 25%; margin-top: 10%; padding-bottom: 30px;}
 }
 
 img {

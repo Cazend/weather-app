@@ -17,6 +17,7 @@ $(document).ready(function() {
 
   $("#search-query").submit(function(event) { 
     performSearch(event, document.getElementById("searchInput").value);
+    $(".dropdown-menu").slideToggle("fast");
   });
 
   function performSearch(event, location) {
