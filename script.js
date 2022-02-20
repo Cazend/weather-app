@@ -145,7 +145,6 @@ $(document).ready(function() {
             var response = JSON.parse(xhr.responseText);
             var city = response.address.city;
             performSearch(e, city);
-            getForecast(lat, lng);
             return;
         }
     }
