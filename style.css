@@ -210,39 +210,19 @@
     background-color: #eee; 
   } 
 
-/* Extra small devices (phones, 600px and down) 
-@media only screen and (max-width: 600px) {
-    .location { font-size: 2rem; margin-top: -1.25rem;}
-    .location-icon { margin-left: -1rem; margin-top: -7rem; }
-    .dropdown-button { margin-left: -3.5rem; margin-top: -4rem;}
-    .weather-icon {width: 500%;}
-    .weather-container { margin-left: -1rem;}
-}
-/* Small devices (portrait tablets and large phones, 600px and up) 
-@media only screen and (min-width: 600px) {
-
-}
-/* Medium devices (landscape tablets, 768px and up) 
-@media only screen and (min-width: 768px) {
-
-}
-/* Large devices (laptops/desktops, 992px and up) 
-@media only screen and (min-width: 992px) {
-
-}
-/* Extra large devices (large laptops and desktops, 1200px and up) 
-@media only screen and (min-width: 1200px) {
-
-}*/
-
 @media only screen and (max-width:700px) {
     .location { font-size: 2rem; margin-top: -1.25rem;}
     .location-icon { margin-left: -1rem; margin-top: -2rem; }
     .dropdown-button { margin-left: 2.5rem; margin-top: -3rem;}
-    .weather-icon {width: 40%; padding: 0px;}
-    .weather-container {padding: 5px};
-    .temp-desc {font-size: 200%;}
-    /*.temp-details {margin-left: -10%; margin-top: -40%;}*/
+    .weather-icon {width: 40%; margin-top: -25%; position: absolute;}
+    .temp-desc {font-size: 300%; margin-left: 45%;}
+    .temp-value {margin-left: 45%; font-size: 3rem;}
+    .temp-value img {width: 4.5rem; margin-left: -1rem;}
+    .temp-details {margin-left: -25%; padding-top: 1.5rem;}
+    .forecast {display: inline-block; margin-left: 150%;}
+    .fc-text{margin-left:100%; font-size: 2rem;}
+    .fc-weather-icon {margin-left: 80%; width: 4.5rem; margin-top: -10%;}
+    .fc-temp-value {margin-left: 35%; margin-top: 5%; padding-bottom: 30px;}
 }
 
 img {
