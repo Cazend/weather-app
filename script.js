@@ -95,9 +95,9 @@ $(document).ready(function() {
 
   function getWeatherIcon(id, weather) {
     if(weather != "Atmosphere" && "Clear" && "Clouds") {
-      return "icons/" + weather + ".svg";
+      return "icons/" + toLowerCase(weather) + ".svg";
     } else {
-      return "icons/" + id + "-" + weather + ".svg";
+      return "icons/" + id + "-" + toLowerCase(weather) + ".svg";
     }
   }
 
