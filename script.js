@@ -130,7 +130,7 @@ $(document).ready(function() {
     navigator.geolocation.getCurrentPosition(success, error, options);
   }
 
-  function getCity(coordinates) {
+  function getCity(coordinates) { // Source: https://www.geeksforgeeks.org/how-to-get-city-name-by-using-geolocation/
     var xhr = new XMLHttpRequest();
     var lat = coordinates[0];
     var lng = coordinates[1];
@@ -174,6 +174,10 @@ $(document).ready(function() {
       displayFailSearch();
     });
   }
+
+  $(".fc-weather-icon").on("click", function(){
+    console.log("test");
+  });
 
   function displayFailSearch() {
     $(".location").text("Invalid location");

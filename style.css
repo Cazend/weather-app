@@ -161,11 +161,19 @@
     column-gap: .6rem;
     justify-content: space-between;
     flex-wrap: nowrap;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 150%;
+}
+
+.asd {
+    background-color: yellow;
 }
 
 .fc-weather-icon img {
     width: 4rem;
-    margin: -4rem;
+    margin-left: -4.5em;
+    margin-top: 1em;
+    position: absolute;
 }
 
 .fc-temp-value img {
@@ -177,7 +185,7 @@
 .fc-temp-value {
     font-size: 1.5em;
     font-weight: bolder;
-    margin-top: -0.5em;
+    margin-top: 1.2em;
     margin-left: -1.9em;
 }
 
