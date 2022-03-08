@@ -7,18 +7,13 @@ $(document).ready(function() {
   $(".dropdown-button").on("click", function(){
     $(".dropdown-menu").slideToggle("fast");
   });
-  
-  $("#searchInput").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#locationList a").css("display", function() {
-         return this.innerText.toLowerCase().indexOf(value) > -1 ? "":"none"
-      });
-  });
 
   $("#search-query").submit(function(event) { 
     performSearch(event, document.getElementById("searchInput").value);
     $(".dropdown-menu").slideToggle("fast");
   });
+
+  var currLon, currLat;
 
   function performSearch(event, location) {
     var request;
@@ -41,18 +36,17 @@ $(document).ready(function() {
     
     request.done(function (response){
       formatSearchResults(response);
-      console.log(request);
     });
     
-    
     request.fail(function (){
-      displayFailSearch();
+      onFailSearch();
+      onFailForecast();
     });
   }
 
   function formatSearchResults(jsonObject) {
     
-    var location, temp_weather_id, temp_desc, temp_value, humidity, wind, lat, lon;
+    var location, temp_weather_id, temp_desc, temp_value, humidity, wind;
 
     location = jsonObject.name;
     temp_weather_id = jsonObject.weather[0].id;
@@ -60,11 +54,12 @@ $(document).ready(function() {
     temp_value = jsonObject.main.temp;
     humidity = jsonObject.main.humidity;
     wind = jsonObject.wind.speed;
-    lat = jsonObject.coord.lat;
-    lon = jsonObject.coord.lon;
+    currLat = jsonObject.coord.lat;
+    currLon = jsonObject.coord.lon;
 
     let weather_icon = getWeatherIcon(temp_weather_id, temp_desc);
 
+    $(".day").text("Today");
     $(".location").text(location);
     $("#weather-icon-img").attr("src", weather_icon);
     $(".temp-desc").text(temp_desc);
@@ -72,7 +67,7 @@ $(document).ready(function() {
     $(".humidity").text(humidity+"%");
     $(".wind").text(Math.round(wind * 10) / 10 + " km/h"); 
 
-    getForecast(lat, lon);
+    fetchForecast();
   };
 
   function formatForecastResults(jsonObject) {
@@ -90,6 +85,31 @@ $(document).ready(function() {
         $("#fc-i" + dayCount).attr("src", icon);
         $("#fc-t" + dayCount).html(temp + "<img src='icons/thermometer-celsius.svg'></img>"); 
         dayCount++;
+      }
+    });
+  }
+
+  function formatDayForecast(jsonObject, day) {
+    jsonObject.daily.forEach((value, index) => {
+      if (index > 0) {
+        var dayname = new Date(value.dt * 1000).toLocaleDateString("en", {
+          weekday: "long",
+        });
+        if(dayname == day) {
+          var weather_id = value.weather[0].id;
+          var weather_desc = value.weather[0].main;
+          var temp = value.temp.day.toFixed(0);
+          var humidity = value.humidity;
+          var wind = value.wind_speed;
+          let icon = getWeatherIcon(weather_id, weather_desc);
+
+          $(".day").text(day);
+          $("#weather-icon-img").attr("src", icon);
+          $(".temp-desc").text(weather_desc);
+          $(".temp-value").html(Math.round(temp) + "<img src='icons/thermometer-celsius.svg'></img>"); 
+          $(".humidity").text(humidity+"%");
+          $(".wind").text(Math.round(wind * 10) / 10 + " km/h"); 
+        }
       }
     });
   }
@@ -151,41 +171,59 @@ $(document).ready(function() {
     }
   }
 
-  function getForecast(latitude, longtitude) {
-    var request;
+  function fetchForecast(day = "all") {
+    if(currLat == null && currLon == null) {
+      onFailForecast();
+    }
     
-    console.log("LATITUDE: " + latitude + " LONGTITUDE: " + longtitude);
-    request = $.ajax({
+    var request = $.ajax({
       url: '//api.openweathermap.org/data/2.5/onecall',
       dataType: 'json',
       type: "GET",
-      data: { lat: latitude, lon: longtitude, 
+      data: { lat: currLat, lon: currLon, 
       exclude: 'current,hourly,minutely,alerts',
       appid: 'de2d41b23483456da8e390456f8b2f4b',
       units: 'metric'}
     });
     
     request.done(function (response){
-      formatForecastResults(response);
-      console.log(request);
+      if(day == "all") {
+        formatForecastResults(response);
+      } else {
+        formatDayForecast(response, day);
+      }
     });
   
     request.fail(function (){
-      displayFailSearch();
+      onFailForecast();
     });
   }
 
   $(".fc-weather-icon").on("click", function(){
-    console.log("test");
+    var id = $(this).attr('id');
+    var day = $('#fc-d' + id.slice(3)).text(); 
+    fetchForecast(day);
   });
 
-  function displayFailSearch() {
+  function onFailSearch() {
+    $(".day").text("N/A");
     $(".location").text("Invalid location");
     $("#weather-icon-img").attr("src", "icons/not-available.svg");
     $(".temp-desc").text("N/A");
     $(".temp-value").html("∞ <img src='icons/thermometer-celsius.svg'></img>"); 
     $(".humidity").text("N/A");
     $(".wind").text("N/A");
+    currLat = null;
+    currLon = null;
     console.log("Failed to retrieve information.");
+  }
+
+  function onFailForecast() {
+    let i = 0
+    for(i; i <= 7; i++) {
+      $("#fc-i" + i).attr("src", "icons/not-available.svg");
+      $("#fc-t" + i).html("∞ <img src='icons/thermometer-celsius.svg'></img>"); 
+    }
+    console.log("Failed to retrieve forecast information.");
   }
 });

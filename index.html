@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
@@ -10,15 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="icons/clouds.svg">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>PWS Weather App</title>
 </head>
 
-<body>
+<body background="backgrounds/city.jpg">
    <div class="container">
        <div class="location-container">
            <div class="location-icon"><img src="icons/location.svg"></div>
            <div class="location">The Hague</div>
+           <div class="day">Today</div>
            <div class="dropdown">
                <button class="dropdown-button"><img src="icons/expand.svg"></button></div>
                <div class="dropdown-menu">
@@ -27,7 +26,7 @@
                 </form>
                 <ul id="locationList">
                     <li>
-                        <a href="#" id="current">Current Location</a>
+                        <a id="current">Current Location</a>
                     </li>
                 </ul>
                </div>
@@ -45,28 +44,35 @@
             </div>  
         </div>
         <div class="forecast-container">
-            <p class="fc-text">Forecast:</p>
+            <div class="fc-text">Forecast:</div>
+            <div class="info">Click on the weather icon for more info.</div>
             <div class="forecast">
                 <div class="fc-day" id="fc-d1">Maandag</div>
-                <div class="fc-weather-icon"><a href="#"><img src="icons/not-available.svg" id="fc-i1"></a></div>
+                <div class="fc-weather-icon" id="fcw1"><img src="icons/not-available.svg" id="fc-i1"></div>
                 <div class="fc-temp-value" id="fc-t1"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
+
                 <div class="fc-day" id="fc-d2">Dinsdag</div>
-                <div class="fc-weather-icon"><img src="icons/not-available.svg" id="fc-i2"></div>
+                <div class="fc-weather-icon" id="fcw2"><img src="icons/not-available.svg" id="fc-i2"></div>
                 <div class="fc-temp-value" id="fc-t2"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
+
                 <div class="fc-day" id="fc-d3">Woensdag</div>
-                <div class="fc-weather-icon"><img src="icons/not-available.svg" id="fc-i3"></div>
+                <div class="fc-weather-icon" id="fcw3"><img src="icons/not-available.svg" id="fc-i3"></div>
                 <div class="fc-temp-value" id="fc-t3"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
+
                 <div class="fc-day" id="fc-d4">Donderdag</div>
-                <div class="fc-weather-icon"><img src="icons/not-available.svg" id="fc-i4"></div>
+                <div class="fc-weather-icon" id="fcw4"><img src="icons/not-available.svg" id="fc-i4"></div>
                 <div class="fc-temp-value" id="fc-t4"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
+
                 <div class="fc-day" id="fc-d5">Vrijdag</div>
-                <div class="fc-weather-icon"><img src="icons/not-available.svg" id="fc-i5"></div>
+                <div class="fc-weather-icon" id="fcw5"><img src="icons/not-available.svg" id="fc-i5"></div>
                 <div class="fc-temp-value" id="fc-t5"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
+
                 <div class="fc-day" id="fc-d6">Zaterdag</div>
-                <div class="fc-weather-icon"><img src="icons/not-available.svg" id="fc-i6"></div>
+                <div class="fc-weather-icon" id="fcw6"><img src="icons/not-available.svg" id="fc-i6"></div>
                 <div class="fc-temp-value" id="fc-t6"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
+
                 <div class="fc-day" id="fc-d7">Zondag</div>
-                <div class="fc-weather-icon"><img src="icons/not-available.svg" id="fc-i7"></div>
+                <div class="fc-weather-icon" id="fcw7"><img src="icons/not-available.svg" id="fc-i7"></div>
                 <div class="fc-temp-value" id="fc-t7"><a>5</a><img src="icons/thermometer-celsius.svg"></div>
             </div>
         </div>

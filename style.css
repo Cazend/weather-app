@@ -55,9 +55,13 @@
     border: 1px solid #000000;
 }
 
+.current {
+    cursor: pointer;
+}
+
 .location-container {
     position: absolute;
-    top: 4em;
+    top: 2em;
     left: 0em;
     display: flex;
     flex-direction: row;
@@ -86,6 +90,13 @@
 .location {
     font-size: 4em;
     font-weight: bold;
+}
+
+.day {
+    font-size: 3em;
+    position: absolute;
+    top: 2.2em;
+    left: 2em;
 }
 
 .weather-container {
@@ -161,12 +172,8 @@
     column-gap: .6rem;
     justify-content: space-between;
     flex-wrap: nowrap;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(129, 129, 129, 0.151);
     width: 150%;
-}
-
-.asd {
-    background-color: yellow;
 }
 
 .fc-weather-icon img {
@@ -174,6 +181,8 @@
     margin-left: -4.5em;
     margin-top: 1em;
     position: absolute;
+    cursor: pointer;
+    z-index: 3;
 }
 
 .fc-temp-value img {
@@ -187,6 +196,8 @@
     font-weight: bolder;
     margin-top: 1.2em;
     margin-left: -1.9em;
+    position: relative;
+    left: -3%;
 }
 
 .fc-day {
@@ -196,6 +207,8 @@
 .fc-text {
     font-size: 1.75vw;
     font-weight: bold;
+    position: relative;
+    top: 20%;
 }
 
 #locationList {
@@ -214,9 +227,15 @@
     display: block;
   }
 
-  #locationList li a:hover:not(.header) {
+#locationList li a:hover:not(.header) {
     background-color: #eee; 
   } 
+
+.info {
+    position: relative;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+}
 
 @media only screen and (max-width:700px) {
     .location { font-size: 2rem; margin-top: -1.25rem;}
@@ -232,6 +251,7 @@
     .fc-text{margin-left:125%; font-size: 2rem;}
     .fc-weather-icon {margin-left: 80%; width: 4.5rem; margin-top: -10%;}
     .fc-temp-value {margin-left: 25%; margin-top: 10%; padding-bottom: 30px;}
+    .info {margin-left: 15%;}
 }
 
 img {
