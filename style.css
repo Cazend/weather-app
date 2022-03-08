@@ -55,7 +55,7 @@
     border: 1px solid #000000;
 }
 
-.current {
+#current {
     cursor: pointer;
 }
 
@@ -237,7 +237,7 @@
     padding-bottom: 1em;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:800px) {
     .location { font-size: 2rem; margin-top: -1.25rem;}
     .location-icon {margin-top: -2rem; }
     .dropdown-button { margin-left: -.5rem; margin-top: -3rem;}
@@ -249,9 +249,10 @@
     .temp-details {margin-left: -60%; padding-top: 1.5rem;}
     .forecast {display: inline-block; margin-left: 150%;}
     .fc-text{margin-left:125%; font-size: 2rem;}
-    .fc-weather-icon {margin-left: 80%; width: 4.5rem; margin-top: -10%;}
-    .fc-temp-value {margin-left: 25%; margin-top: 10%; padding-bottom: 30px;}
-    .info {margin-left: 15%;}
+    .fc-weather-icon {margin-left: 69%; width: 4.5rem; margin-top: -10%;}
+    .fc-temp-value {margin-left: 48%; margin-top: 10%; padding-bottom: 30px;}
+    .info {left: 150%;}
+    .day {position: absolute; left:20%; font-size: 2em; margin-top: -10%;}
 }
 
 img {
