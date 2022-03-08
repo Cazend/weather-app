@@ -203,6 +203,7 @@ $(document).ready(function() {
   $(".fc-weather-icon").on("click", function(){
     var id = $(this).attr('id');
     var day = $('#fc-d' + id.slice(3)).text(); 
+    $('html, body').animate({scrollTop: '0px'}, 700);
     fetchForecast(day);
   });
 
