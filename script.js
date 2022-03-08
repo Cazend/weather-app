@@ -125,6 +125,7 @@ $(document).ready(function() {
   var geocoder;
   $("#current").on("click", function(){
     getLocation();
+    $(".dropdown-menu").slideToggle("fast");
   })
 
   function getLocation() {
